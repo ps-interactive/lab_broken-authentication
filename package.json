@@ -1,8 +1,10 @@
 {
   "type": "module",
   "scripts": {
-    "dev": "env-cmd nodemon src/index.js",
-    "debug": "env-cmd node debug.js"
+    "dev": "env-cmd nodemon src.broken/index.js",
+    "dev-final": "env-cmd nodemon src/index.js",
+    "debug": "env-cmd node debug.js",
+    "generate-jwt-secret": "sh utility/make-jwt-secret.sh"
   },
   "dependencies": {
     "bcrypt": "^6.0.0",

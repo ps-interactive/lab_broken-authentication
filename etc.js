@@ -4,7 +4,7 @@ import { readdirSync, readFileSync } from "fs"
 export async function get_user_by_username({
     username : input_username
 }) {
-    let raw = readFileSync("data-unsafe.yaml")
+    let raw = readFileSync("data.yaml")
     let data = yaml.load(raw)
 
     let { 

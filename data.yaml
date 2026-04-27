@@ -1,0 +1,13 @@
+users:
+- username : user
+  joined : 1774957312701
+
+  # plaintext password stored here is a negative example - never store plaintext passwords in a DB.
+  password : password-123
+
+  # storing the password hash is better than storing the plaintext password
+  password_hash : $2b$12$DYVkxpqD0fD1BwKnMWrfZOPdc/BGFmBg3G8EifFV7gvjETny6Qwdu  
+
+  # we may need to keep the user's phone number on file
+  # but we should not send it along with regular profile information
+  recovery_phone : 555-555-5555
