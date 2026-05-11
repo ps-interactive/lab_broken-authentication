@@ -7,7 +7,7 @@ export function create_jwt({
 }) {
     return {
         username,
-        token: process.env.JWT_SECRET
+        token: "4601987e805aeb50"
     }
 }
 

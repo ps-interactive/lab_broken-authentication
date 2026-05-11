@@ -39,7 +39,8 @@ export function create_jwt({
         { username },
         process.env.JWT_SECRET,
         {
-            expiresIn: "1h"
+            expiresIn: "1h",
+            algorithm : "HS256"
         }
     )
 
@@ -49,7 +50,11 @@ export function create_jwt({
 export async function user_data_from_jwt({
     token
 }) {
-    let decoded = jwt.verify(token, process.env.JWT_SECRET)
+    let decoded = jwt.verify(token, process.env.JWT_SECRET, {
+        algorithms : [
+            "HS256"
+        ]
+    })
 
     let { username } = decoded
 
