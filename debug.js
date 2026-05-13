@@ -5,7 +5,8 @@ let DATA_URL = "http://localhost:8080/me"
 
 let rl = readline.createInterface({
     input: process.stdin,
-    output: process.stdout
+    output: process.stdout,
+    terminal: false
 })
 
 function ask(q) {
