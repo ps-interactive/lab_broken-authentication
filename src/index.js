@@ -34,8 +34,8 @@ app.post("/login",async (req,res)=>{
 
     if (!authenticated) {
         /**
-         * It is sensible to be intentionally vague 
-         * in the case of this kind of error
+         * It is sensible to be intentionally vague
+         * when handling this type of error.
          */
         return res.status(403).send()
     }
@@ -70,8 +70,8 @@ app.get("/me",async (req,res)=>{
     }
 
     /**
-     * We want to be certain to destructure the user data before sending it
-     * Avoid sending raw user data to the server
+     * Destructure the user data before sending it.
+     * Avoid sending raw user data to the client.
      */
     let {
         joined
