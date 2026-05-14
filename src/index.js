@@ -50,37 +50,44 @@ app.post("/login",async (req,res)=>{
 })
 
 app.get("/me",async (req,res)=>{
+
+    try {
+
+        let { 
+            headers
+        } = req
     
-    let { 
-        headers
-    } = req
+        let {
+            token,
+            username
+        } = headers
+    
+        let user_data = await user_data_from_jwt({
+            token,
+            username
+        })
+    
+        if (!user_data) {
+            return res.status(404).send()
+        }
+    
+        /**
+         * Destructure the user data before sending it.
+         * Avoid sending raw user data to the client.
+         */
+        let {
+            joined
+        } = user_data
+    
+        return res.status(200).send({
+            username,
+            joined
+        })
 
-    let {
-        token,
-        username
-    } = headers
-
-    let user_data = await user_data_from_jwt({
-        token,
-        username
-    })
-
-    if (!user_data) {
-        return res.status(404).send()
+    } catch (e) {
+        res.status(403).send()
     }
-
-    /**
-     * Destructure the user data before sending it.
-     * Avoid sending raw user data to the client.
-     */
-    let {
-        joined
-    } = user_data
-
-    return res.status(200).send({
-        username,
-        joined
-    })
+    
 
 })
 
